@@ -1,0 +1,302 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix cmd: <http://www.exemple.com/cmd#> .
+@prefix cmd-sh: <http://www.exemple.com/cmd-sh#> .
+
+# TSoR
+cmd-sh:TSoRShape a sh:NodeShape ;
+    sh:targetClass cmd:TSoR ;
+    # Ontology
+    sh:property [
+        sh:path cmd:hasRoot ;
+        sh:class cmd:AnalysisElement ;
+        sh:name "A TSoR has exactly one root which is an analysis element" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "A TSoR should have exactly one root through the property hasRoot, and this root must an AnalysisElement." ;
+    ] ;
+    sh:property [
+        sh:path cmd:aggregFunction ;
+        sh:name "A TSoR has no more than one aggregation function" ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "A TSoR should have 0 or 1 aggregFunction, no more." ;
+    ] ;
+    # Accountability
+    sh:property [
+        sh:path rdfs:label ;
+        sh:nodeKind sh:Literal ;
+        sh:name "TSoR label";
+        sh:minCount 1 ;
+        sh:severity sh:Info ;
+        sh:message "A TSoR should have at least one label."
+    ] ;
+    sh:property [
+        sh:path skos:description ;
+        sh:nodeKind sh:Literal ;
+        sh:name "TSoR description";
+        sh:minCount 1 ;
+        sh:severity sh:Info ;
+        sh:message "A TSoR should have at least one description."
+    ] ;
+    sh:property [
+        sh:path dc:creator ;
+        sh:name "TSoR creator";
+        sh:minCount 1 ;
+        sh:severity sh:Info ;
+        sh:message "A TSoR should have at least one creator."
+    ] ;
+    sh:property [
+        sh:path dc:created ;
+        sh:name "TSoR creation date";
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Info ;
+        sh:message "A TSoR should have exactly one creation date."
+    ] .
+
+# AnalysisElement
+cmd-sh:AnalysisElementShape a sh:NodeShape ;
+    # Ontology
+    sh:targetClass cmd:AnalysisElement ;
+    sh:property [
+       sh:path [ sh:inversePath cmd:hasRoot ] ;
+       sh:class cmd:TSoR ;
+       sh:name "An analysis element can be the root of a TSoR" ;
+       sh:maxCount 1 ;
+       sh:severity sh:Violation ;
+       sh:message "An AnalysisElement can be associated with a maximum of one TSoR throught the property hasRoot." ;
+    ] ;
+    sh:property [
+        sh:path cmd:weight ;
+        sh:or ( [ sh:datatype xsd:integer ] [ sh:datatype xsd:float ] [ sh:datatype xsd:double ] [ sh:datatype xsd:decimal ] ) ;
+        sh:name "Analysis elements have no more than one weight, a positive number." ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:minInclusive 0 ;
+        sh:severity sh:Violation ;
+        sh:message "An AnalysisElement should have 0 or 1 weight, no more. That weight should be positive number with one of the following xsd type: integer, float, double or decimal." ;
+    ] ;
+    # Hierarchy constraint
+    # Each analysis element should specifies (be the child of) one analysis element or be the root of a TSoR
+    # xone: Each value node should conform to *exactly one* of the provided shape.
+    sh:xone (
+      [
+        sh:property [
+            sh:path [ sh:inversePath cmd:isSpecifiedBy ] ;
+            sh:class cmd:AnalysisElement ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:name "An analysis element either specifies another one, or is the root of the TSoR" ;
+            sh:severity sh:Violation ;
+            sh:message "An AnalysisElement either specifies exactly one other AnalysisElement, being object of a property isSpecifiedBy, or is the root of exactly one TSoR, being object of a property hasRoot." ;
+        ]
+      ]
+      [
+        sh:property [
+            sh:path [ sh:inversePath cmd:hasRoot ] ;
+            sh:class cmd:TSoR ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:name "An analysis element either specifies another one, or is the root of the TSoR" ;
+            sh:severity sh:Violation ;
+            sh:message "An AnalysisElement either specifies exactly one other AnalysisElement, being object of a property isSpecifiedBy, or is the root of exactly one TSoR, being object of a property hasRoot." ;
+        ]
+      ]
+    ) ;
+    # Represents something
+    sh:property [
+        sh:path cmd:represents ;
+        sh:name "Analysis elements represent something." ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "An AnalysisElement should represents 0 or 1 thing." ;
+    ] ;
+    # Recommendations
+    # Rec: No unused analysis element
+    sh:or (
+      [
+        sh:property [
+            sh:path cmd:isSpecifiedBy ;
+            sh:class cmd:AnalysisElement ;
+            sh:minCount 1 ;
+            sh:name "No unused analysis element. An analysis element is either specified by  another one, or expects a requirement." ;
+            sh:severity sh:Warning ;
+            sh:message "No unused analysis element. An AnalysisElement must be subject of isSpecifiedBy, or of expects." ;
+        ]
+      ]
+      [
+        sh:property [
+            sh:path cmd:expects ;
+            sh:class cmd:Requirement ;
+            sh:minCount 1 ;
+            sh:name "No unused analysis element. An analysis element is either specified by  another one, or expects a requirement." ;
+            sh:severity sh:Warning ;
+            sh:message "No unused analysis element. An AnalysisElement must be subject of isSpecifiedBy, or of expects." ;
+        ]
+      ]
+    ) ;
+    # Rec: Uniformity of children types
+    sh:or (
+      [
+        sh:and (
+          [
+            sh:property [
+                sh:path cmd:isSpecifiedBy ;
+                sh:class cmd:AnalysisElement ;
+                sh:minCount 1 ;
+                sh:name "Uniformity of children types. An analysis element is either specified by  another one, or expects a requirement, but not both." ;
+                sh:severity sh:Warning ;
+                sh:message "Uniformity of children types. An AnalysisElement must either be subject of isSpecifiedBy, or of expects, but not both." ;
+            ]
+          ]
+          [
+            sh:not [
+              sh:property [
+                  sh:path cmd:expects ;
+                  sh:class cmd:Requirement ;
+                  sh:minCount 1 ;
+                  sh:name "Uniformity of children types. An analysis element is either specified by  another one, or expects a requirement, but not both." ;
+                  sh:severity sh:Warning ;
+                  sh:message "Uniformity of children types. An AnalysisElement must either be subject of isSpecifiedBy, or of expects, but not both." ;
+              ]
+            ]
+          ]
+        )
+      ]
+      [
+        sh:and (
+          [
+            sh:property [
+                sh:path cmd:expects ;
+                sh:class cmd:Requirement ;
+                sh:minCount 1 ;
+                sh:name "Uniformity of children types. An analysis element is either specified by  another one, or expects a requirement, but not both." ;
+                sh:severity sh:Warning ;
+                sh:message "Uniformity of children types. An AnalysisElement must either be subject of isSpecifiedBy, or of expects, but not both." ;
+            ]
+          ]
+          [
+            sh:not [
+              sh:property [
+                  sh:path cmd:isSpecifiedBy ;
+                  sh:class cmd:AnalysisElement ;
+                  sh:minCount 1 ;
+                  sh:name "Uniformity of children types. An analysis element is either specified by  another one, or expects a requirement, but not both." ;
+                  sh:severity sh:Warning ;
+                  sh:message "Uniformity of children types. An AnalysisElement must either be subject of isSpecifiedBy, or of expects, but not both." ;
+              ]
+            ]
+          ]
+        )
+      ]
+    ) .
+
+# Requirement
+cmd-sh:RequirementShape a sh:NodeShape ;
+    sh:targetClass cmd:Requirement ;
+    # Ontology
+    sh:property [
+        sh:path [ sh:inversePath cmd:expects ] ;
+        sh:class cmd:AnalysisElement ;
+        sh:name "Requirement is expected by exactly one analysis element" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Requirement must be exactly once the object of relations expects, with subject an AnalysisElement." ;
+    ] ;
+    sh:property [
+        sh:path cmd:isImplementedBy ;
+        sh:class cmd:Implementation ;
+        sh:name "Requirement is implemented by one implementation maximum" ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Requirement has 0 or 1 Implementation through the relation isImplementedBy." ;
+    ] ;
+    sh:property [
+        sh:path cmd:weight ;
+        sh:or ( [ sh:datatype xsd:integer ] [ sh:datatype xsd:float ] [ sh:datatype xsd:double ] [ sh:datatype xsd:decimal ] ) ;
+        sh:name "Requirements have no more than one weight, a positive number." ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:minInclusive 0 ;
+        sh:severity sh:Violation ;
+        sh:message "A Requirements should have 0 or 1 weight, no more. That weight should be positive number with one of the following xsd type: integer, float, double or decimal." ;
+    ] ;
+    sh:property [
+        sh:path cmd:implemQuality ;
+        sh:or ( [ sh:datatype xsd:integer ] [ sh:datatype xsd:float ] [ sh:datatype xsd:double ] [ sh:datatype xsd:decimal ] ) ;
+        sh:name "Requirements have no more than one implementation quality, a positive number." ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:minInclusive 0 ;
+        sh:minInclusive 1 ;
+        sh:severity sh:Violation ;
+        sh:message "A Requirements should have 0 or 1 implemQuality, no more. This quelity should be number with one of the following xsd type: integer, float, double or decimal, between 0 and 1." ;
+    ] ;
+    # Represents something
+    sh:property [
+        sh:path cmd:represents ;
+        sh:name "Requirements represent something." ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "An Requirement should represents exactly one thing." ;
+    ] ;
+    # Recommendations
+    # Complete and perfect implementation
+    sh:and (
+      [
+        sh:property [
+            sh:path cmd:isImplementedBy ;
+            sh:class cmd:Implementation ;
+            sh:name "Complete and perfect implementation." ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:severity sh:Warning ;
+            sh:message "Complete and perfect implementation. Each requirement should have an implementation and an implemQuality of 1." ;
+        ]
+      ]
+      [
+        sh:property [
+            sh:path cmd:implemQuality ;
+            sh:name "Complete and perfect implementation." ;
+            sh:maxCount 1 ;
+            sh:minInclusive 1 ;
+            sh:minInclusive 1 ;
+            sh:severity sh:Warning ;
+            sh:message "Complete and perfect implementation. Each requirement should have an implementation and an implemQuality of 1." ;
+        ]
+      ]
+    ) ;
+    # Perfect implementation or no implementation
+    sh:or (
+      [
+        sh:property [
+            sh:path cmd:isImplementedBy ;
+            sh:class cmd:Implementation ;
+            sh:name "Perfect implementation or no implementation." ;
+            sh:maxCount 0 ;
+            sh:severity sh:Warning ;
+            sh:message "Perfect implementation or no implementation. Each requirement should have an implemQuality of 1 or no implementation at all." ;
+        ]
+      ]
+      [
+        sh:property [
+            sh:path cmd:implemQuality ;
+            sh:name "Perfect implementation or no implementation." ;
+            sh:maxCount 1 ;
+            sh:minInclusive 1 ;
+            sh:minInclusive 1 ;
+            sh:severity sh:Warning ;
+            sh:message "Perfect implementation or no implementation. Each requirement should have an implemQuality of 1 or no implementation at all." ;
+        ]
+      ]
+    ) .
