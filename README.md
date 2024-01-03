@@ -6,3 +6,7 @@ The vocabulary is defined as follows.
 
 To see the human-readable version of this vocabulary, [click here](https://w3id.org/lode/owlapi/https://raw.githubusercontent.com/Jendersen/TSoR-vocab/main/cmd_vocab.xml).
 The vocabulary is available in two formats: [RDF/XML](cmd_vocab.xml) or [Turtle](cmd_vocab.ttl).
+
+## To go further
+[SHACL shapes](cmd_shacl.ttl) are defined to ensure that the TSoR define with the vocabulary is well-formed, i.e. it actually forms a tree structure. It also verify that the TSoR satisfies some recommendations.
+The file [example.ttl]([example.ttl) provides an example of a TSoR defined with the given vocabulary. It represents a measure of accountability, as describe in [here](https://github.com/Jendersen/KG_accountability/tree/main).
