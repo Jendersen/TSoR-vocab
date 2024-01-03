@@ -4,4 +4,4 @@ This document is a vocabulary to describe compound measures, i.e. measures with 
 The vocabulary is defined as follows.
 [![Vocabulary illustration](illustration.svg)](illustration.svg)
 
-To see the human-readable version of this vocabulary, [click here](http://150.146.207.114/lode/extract?url=https://raw.githubusercontent.com/Jendersen/TSoR-vocab/main/cmd_vocab.xml&owlapi=true&lang=en).
+To see the human-readable version of this vocabulary, [click here](https://w3id.org/lode/owlapi/https://raw.githubusercontent.com/Jendersen/TSoR-vocab/main/cmd_vocab.xml).
