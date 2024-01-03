@@ -9,4 +9,4 @@ The vocabulary is available in two formats: [RDF/XML](cmd_vocab.xml) or [Turtle]
 
 ## To go further
 [SHACL shapes](cmd_shacl.ttl) are defined to ensure that the TSoR define with the vocabulary is well-formed, i.e. it actually forms a tree structure. It also verify that the TSoR satisfies some recommendations.
-The file [example.ttl]([example.ttl) provides an example of a TSoR defined with the given vocabulary. It represents a measure of accountability, as describe in [here](https://github.com/Jendersen/KG_accountability/tree/main).
+The file [example.ttl](example.ttl) provides an example of a TSoR defined with the given vocabulary. It represents a measure of accountability, as describe in [here](https://github.com/Jendersen/KG_accountability/tree/main).
