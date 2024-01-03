@@ -5,3 +5,4 @@ The vocabulary is defined as follows.
 [![Vocabulary illustration](illustration.svg)](illustration.svg)
 
 To see the human-readable version of this vocabulary, [click here](https://w3id.org/lode/owlapi/https://raw.githubusercontent.com/Jendersen/TSoR-vocab/main/cmd_vocab.xml).
+The vocabulary is available in two formats: [RDF/XML](cmd_vocab.xml) or [Turtle](cmd_vocab.ttl).
