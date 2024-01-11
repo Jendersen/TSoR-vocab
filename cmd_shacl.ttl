@@ -4,6 +4,7 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema: <http://schema.org/> .
 @prefix cmd: <http://www.exemple.com/cmd#> .
 @prefix cmd-sh: <http://www.exemple.com/cmd-sh#> .
 
@@ -297,6 +298,47 @@ cmd-sh:RequirementShape a sh:NodeShape ;
             sh:minInclusive 1 ;
             sh:severity sh:Warning ;
             sh:message "Perfect implementation or no implementation. Each requirement should have an implemQuality of 1 or no implementation at all." ;
+        ]
+      ]
+    ) .
+
+# Implementation
+cmd-sh:ImplementationShape a sh:NodeShape ;
+    sh:targetClass cmd:Implementation ;
+    # Values
+    sh:property [
+        sh:path schema:query ;
+        sh:name "Implementation has maximum one query." ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "An implementation must not have more than one query." ;
+    ] ;
+    sh:property [
+        sh:path schema:url ;
+        sh:name "Implementation has maximum one URL." ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "An implementation must not have more than one query." ;
+    ] ;
+    sh:or (
+      [
+        sh:property [
+            sh:path schema:query ;
+            sh:name "Implementation has one query." ;
+            sh:minCount 1 ;
+            sh:severity sh:Warning ;
+            sh:message "Implementation should have one query or one URL." ;
+        ]
+      ]
+      [
+        sh:property [
+            sh:path schema:url ;
+            sh:name "Implementation has one URL." ;
+            sh:minCount 1 ;
+            sh:severity sh:Warning ;
+            sh:message "Implementation should have one query or one URL." ;
         ]
       ]
     ) .
