@@ -231,17 +231,6 @@ cmd-sh:RequirementShape a sh:NodeShape ;
         sh:severity sh:Violation ;
         sh:message "A Requirements should have 0 or 1 weight, no more. That weight should be positive number with one of the following xsd type: integer, float, double or decimal." ;
     ] ;
-    sh:property [
-        sh:path cmd:implemQuality ;
-        sh:or ( [ sh:datatype xsd:integer ] [ sh:datatype xsd:float ] [ sh:datatype xsd:double ] [ sh:datatype xsd:decimal ] ) ;
-        sh:name "Requirements have no more than one implementation quality, a positive number." ;
-        sh:minCount 0 ;
-        sh:maxCount 1 ;
-        sh:minInclusive 0 ;
-        sh:minInclusive 1 ;
-        sh:severity sh:Violation ;
-        sh:message "A Requirements should have 0 or 1 implemQuality, no more. This quelity should be number with one of the following xsd type: integer, float, double or decimal, between 0 and 1." ;
-    ] ;
     # Represents something
     sh:property [
         sh:path cmd:represents ;
@@ -252,55 +241,16 @@ cmd-sh:RequirementShape a sh:NodeShape ;
         sh:message "An Requirement should represents exactly one thing." ;
     ] ;
     # Recommendations
-    # Complete and perfect implementation
-    sh:and (
-      [
-        sh:property [
-            sh:path cmd:isImplementedBy ;
-            sh:class cmd:Implementation ;
-            sh:name "Complete and perfect implementation." ;
-            sh:minCount 1 ;
-            sh:maxCount 1 ;
-            sh:severity sh:Warning ;
-            sh:message "Complete and perfect implementation. Each requirement should have an implementation and an implemQuality of 1." ;
-        ]
-      ]
-      [
-        sh:property [
-            sh:path cmd:implemQuality ;
-            sh:name "Complete and perfect implementation." ;
-            sh:maxCount 1 ;
-            sh:minInclusive 1 ;
-            sh:minInclusive 1 ;
-            sh:severity sh:Warning ;
-            sh:message "Complete and perfect implementation. Each requirement should have an implementation and an implemQuality of 1." ;
-        ]
-      ]
-    ) ;
-    # Perfect implementation or no implementation
-    sh:or (
-      [
-        sh:property [
-            sh:path cmd:isImplementedBy ;
-            sh:class cmd:Implementation ;
-            sh:name "Perfect implementation or no implementation." ;
-            sh:maxCount 0 ;
-            sh:severity sh:Warning ;
-            sh:message "Perfect implementation or no implementation. Each requirement should have an implemQuality of 1 or no implementation at all." ;
-        ]
-      ]
-      [
-        sh:property [
-            sh:path cmd:implemQuality ;
-            sh:name "Perfect implementation or no implementation." ;
-            sh:maxCount 1 ;
-            sh:minInclusive 1 ;
-            sh:minInclusive 1 ;
-            sh:severity sh:Warning ;
-            sh:message "Perfect implementation or no implementation. Each requirement should have an implemQuality of 1 or no implementation at all." ;
-        ]
-      ]
-    ) .
+    # Complete implementation
+    sh:property [
+        sh:path cmd:isImplementedBy ;
+        sh:class cmd:Implementation ;
+        sh:name "Complete implementation." ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "Complete implementation. Each requirement should have exactly one implementation." ;
+    ] .
 
 # Implementation
 cmd-sh:ImplementationShape a sh:NodeShape ;
