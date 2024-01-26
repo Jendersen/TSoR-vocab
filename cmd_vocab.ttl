@@ -106,13 +106,8 @@
   rdfs:comment "Definition of a function expressing how to compute a unique global score based on the result obtained on each requirements and their weight."@en ;
   rdfs:domain <http://www.exemple.com/cmd#TSoR> .
 
-# implemQuality
-<http://www.exemple.com/cmd#implemQuality>
-  a owl:DatatypeProperty ;
-  rdfs:label "implementation quality"@en ;
-  rdfs:comment "Numerical indicator between 0 and 1 representing the quality of the implementation of a given requirement. 0 means it implements the requirement very poorly, 1 means it is almost perfect."@en ;
-  rdfs:domain <http://www.exemple.com/cmd#Requirement> ;
-  rdfs:range xsd:double .
+# Removed:
+# implemQuality : "Numerical indicator between 0 and 1 representing the quality of the implementation of a given requirement. 0 means it implements the requirement very poorly, 1 means it is almost perfect."
 
 ###########################
 <http://www.exemple.com/cmd#isFollowedBy>
