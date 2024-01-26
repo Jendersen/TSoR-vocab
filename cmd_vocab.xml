@@ -93,12 +93,6 @@
     <rdfs:domain rdf:resource="http://www.exemple.com/cmd#TSoR"/>
   </owl:DatatypeProperty>
 
-  <owl:DatatypeProperty rdf:about="http://www.exemple.com/cmd#implemQuality">
-    <rdfs:label xml:lang="en">implementation quality</rdfs:label>
-    <rdfs:comment xml:lang="en">Numerical indicator between 0 and 1 representing the quality of the implementation of a given requirement. 0 means it implements the requirement very poorly, 1 means it is almost perfect.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://www.exemple.com/cmd#Requirement"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
-  </owl:DatatypeProperty>
 
   <owl:ObjectProperty rdf:about="http://www.exemple.com/cmd#isFollowedBy">
     <rdfs:label xml:lang="en">is followed by</rdfs:label>
