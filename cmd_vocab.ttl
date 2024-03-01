@@ -78,11 +78,11 @@
   rdfs:domain <http://www.exemple.com/cmd#AnalysisElement> ;
   rdfs:range <http://www.exemple.com/cmd#Requirement> .
 
-# represents
-<http://www.exemple.com/cmd#represents>
+# hasContent
+<http://www.exemple.com/cmd#hasContent>
   a owl:ObjectProperty ;
-  rdfs:label "represents"@en ;
-  rdfs:comment "A node of a TSoR represents a given concept or metric."@en .
+  rdfs:label "hasContent"@en ;
+  rdfs:comment "A node of a TSoR has as content a given concept or metric."@en .
 
 # isImplementedBy
 <http://www.exemple.com/cmd#isImplementedBy>

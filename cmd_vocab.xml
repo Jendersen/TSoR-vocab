@@ -68,9 +68,9 @@
     <rdfs:range rdf:resource="http://www.exemple.com/cmd#Requirement"/>
   </owl:ObjectProperty>
 
-  <owl:ObjectProperty rdf:about="http://www.exemple.com/cmd#represents">
-    <rdfs:label xml:lang="en">represents</rdfs:label>
-    <rdfs:comment xml:lang="en">A node of a TSoR represents a given concept or metric.</rdfs:comment>
+  <owl:ObjectProperty rdf:about="http://www.exemple.com/cmd#hasContent">
+    <rdfs:label xml:lang="en">hasContent</rdfs:label>
+    <rdfs:comment xml:lang="en">A node of a TSoR has as content a given concept or metric.</rdfs:comment>
   </owl:ObjectProperty>
 
   <owl:ObjectProperty rdf:about="http://www.exemple.com/cmd#isImplementedBy">

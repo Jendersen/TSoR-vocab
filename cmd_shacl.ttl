@@ -110,14 +110,14 @@ cmd-sh:AnalysisElementShape a sh:NodeShape ;
         ]
       ]
     ) ;
-    # Represents something
+    # Has a content
     sh:property [
-        sh:path cmd:represents ;
-        sh:name "Analysis elements represent something." ;
+        sh:path cmd:hasContent ;
+        sh:name "Analysis elements have a content." ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
-        sh:message "An AnalysisElement should represents 0 or 1 thing." ;
+        sh:message "An AnalysisElement should have 0 or 1 content throught hasContent relation." ;
     ] ;
     # Recommendations
     # Rec: No unused analysis element
@@ -231,14 +231,14 @@ cmd-sh:RequirementShape a sh:NodeShape ;
         sh:severity sh:Violation ;
         sh:message "A Requirements should have 0 or 1 weight, no more. That weight should be positive number with one of the following xsd type: integer, float, double or decimal." ;
     ] ;
-    # Represents something
+    # Has a content
     sh:property [
-        sh:path cmd:represents ;
-        sh:name "Requirements represent something." ;
+        sh:path cmd:hasContent ;
+        sh:name "Requirements have a content." ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
-        sh:message "An Requirement should represents exactly one thing." ;
+        sh:message "An Requirement should have exactly one content throught hasContent relation." ;
     ] ;
     # Recommendations
     # Complete implementation
