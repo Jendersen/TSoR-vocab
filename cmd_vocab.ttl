@@ -6,7 +6,10 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix sw: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 
-<http://www.exemple.com/cmd#>
+
+@base <https://w3id.org/games/spec/coil#> .
+
+<https://w3id.org/cmd#>
   a owl:Ontology, <http://purl.org/vocommons/voaf#Vocabulary> ;
   rdfs:label "Compound Measure Description"@en ;
   skos:altLabel "Complex Measure Definition"@en, "CMD-v" ;
@@ -27,25 +30,25 @@
 #################################
 
 # TSoR
-<http://www.exemple.com/cmd#TSoR>
+<https://w3id.org/cmd#TSoR>
   a rdfs:Class ;
   rdfs:label "TSoR: Tree-Structure of Requirements"@en ;
   rdfs:comment "Defines a compound measure with a set of requirements as well as a structuration of these requirements through the use of analysis elements."@en .
 
 # AnalysisElement
-<http://www.exemple.com/cmd#AnalysisElement>
+<https://w3id.org/cmd#AnalysisElement>
   a rdfs:Class ;
   rdfs:label "Analysis Element"@en ;
   rdfs:comment "Node of the tree structure to classify requirements."@en .
 
 # Requirement
-<http://www.exemple.com/cmd#Requirement>
+<https://w3id.org/cmd#Requirement>
   a rdfs:Class ;
   rdfs:label "Requirement"@en ;
   rdfs:comment "Node of the tree structure representing a given metric to evaluate a concrete element."@en .
 
 # Implementation
-<http://www.exemple.com/cmd#Implementation>
+<https://w3id.org/cmd#Implementation>
   a rdfs:Class ;
   rdfs:label "Implementation"@en ;
   rdfs:comment "An implementation describing a procedure and/or an executable document. Can either be expressed in a query language, or be refering to an executable file, or be precisly describing the procedure."@en .
@@ -55,64 +58,64 @@
 #################################
 
 # hasRoot
-<http://www.exemple.com/cmd#hasRoot>
+<https://w3id.org/cmd#hasRoot>
   a owl:ObjectProperty ;
   rdfs:label "has root"@en ;
   rdfs:comment "The TSoR has a given root among the analysis element."@en ;
-  rdfs:domain <http://www.exemple.com/cmd#TSoR> ;
-  rdfs:range <http://www.exemple.com/cmd#AnalysisElement> .
+  rdfs:domain <https://w3id.org/cmd#TSoR> ;
+  rdfs:range <https://w3id.org/cmd#AnalysisElement> .
 
 # isSpecifiedBy
-<http://www.exemple.com/cmd#isSpecifiedBy>
+<https://w3id.org/cmd#isSpecifiedBy>
   a owl:ObjectProperty ;
   rdfs:label "is specified by"@en ;
   rdfs:comment "Structures analysis elements through this relation. An analysis element is specified by one or more other analysis elements that detail the analysis."@en ;
-  rdfs:domain <http://www.exemple.com/cmd#AnalysisElement> ;
-  rdfs:range <http://www.exemple.com/cmd#AnalysisElement> .
+  rdfs:domain <https://w3id.org/cmd#AnalysisElement> ;
+  rdfs:range <https://w3id.org/cmd#AnalysisElement> .
 
 # expects
-<http://www.exemple.com/cmd#expects>
+<https://w3id.org/cmd#expects>
   a owl:ObjectProperty ;
   rdfs:label "expects"@en ;
   rdfs:comment "Associate a requirement with an analysis element: an analysis element expects a requirement."@en ;
-  rdfs:domain <http://www.exemple.com/cmd#AnalysisElement> ;
-  rdfs:range <http://www.exemple.com/cmd#Requirement> .
+  rdfs:domain <https://w3id.org/cmd#AnalysisElement> ;
+  rdfs:range <https://w3id.org/cmd#Requirement> .
 
 # hasContent
-<http://www.exemple.com/cmd#hasContent>
+<https://w3id.org/cmd#hasContent>
   a owl:ObjectProperty ;
   rdfs:label "hasContent"@en ;
   rdfs:comment "A node of a TSoR has as content a given concept or metric."@en .
 
 # isImplementedBy
-<http://www.exemple.com/cmd#isImplementedBy>
+<https://w3id.org/cmd#isImplementedBy>
   a owl:ObjectProperty ;
   rdfs:label "is implemented by"@en ;
   rdfs:comment "A requirement is implemented by an implementation."@en ;
-  rdfs:domain <http://www.exemple.com/cmd#Requirement> ;
-  rdfs:range <http://www.exemple.com/cmd#Implementation> .
+  rdfs:domain <https://w3id.org/cmd#Requirement> ;
+  rdfs:range <https://w3id.org/cmd#Implementation> .
 
 # weight
-<http://www.exemple.com/cmd#weight>
+<https://w3id.org/cmd#weight>
   a owl:DatatypeProperty ;
   rdfs:label "weight"@en ;
   rdfs:comment "Number representing the relative importance of one node (analysis element or requirement) of a TSoR compared to its siblings."@en ;
   rdfs:range xsd:double .
 
 # aggregFunction
-<http://www.exemple.com/cmd#aggregFunction>
+<https://w3id.org/cmd#aggregFunction>
   a owl:DatatypeProperty ;
   rdfs:label "aggregation function"@en ;
   rdfs:comment "Definition of a function expressing how to compute a unique global score based on the result obtained on each requirements and their weight."@en ;
-  rdfs:domain <http://www.exemple.com/cmd#TSoR> .
+  rdfs:domain <https://w3id.org/cmd#TSoR> .
 
 # Removed:
 # implemQuality : "Numerical indicator between 0 and 1 representing the quality of the implementation of a given requirement. 0 means it implements the requirement very poorly, 1 means it is almost perfect."
 
 ###########################
-<http://www.exemple.com/cmd#isFollowedBy>
+<https://w3id.org/cmd#isFollowedBy>
   a owl:ObjectProperty ;
   rdfs:label "is followed by"@en ;
   rdfs:comment "An implementation is followed by another implementation if the the second complement the first one."@en ;
-  rdfs:domain <http://www.exemple.com/cmd#Implementation> ;
-  rdfs:range <http://www.exemple.com/cmd#Implementation> .
+  rdfs:domain <https://w3id.org/cmd#Implementation> ;
+  rdfs:range <https://w3id.org/cmd#Implementation> .

@@ -5,7 +5,7 @@
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix schema: <http://schema.org/> .
-@prefix cmd: <http://www.exemple.com/cmd#> .
+@prefix cmd: <https://w3id.org/cmd#> .
 @prefix cmd-sh: <http://www.exemple.com/cmd-sh#> .
 
 # TSoR

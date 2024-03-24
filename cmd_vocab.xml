@@ -8,7 +8,7 @@
          xmlns:dc="http://purl.org/dc/terms/"
          xmlns:foaf="http://xmlns.com/foaf/0.1/">
 
-  <owl:Ontology rdf:about="http://www.exemple.com/cmd#">
+  <owl:Ontology rdf:about="https://w3id.org/cmd#">
     <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
     <rdfs:label xml:lang="en">Compound Measure Description</rdfs:label>
     <skos:altLabel xml:lang="en">Complex Measure Definition</skos:altLabel>
@@ -18,87 +18,87 @@
     <dc:contributor>Sylvie Cazalens</dc:contributor>
     <dc:contributor>Philippe Lamarre</dc:contributor>
     <dc:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2022-25-08</dc:created>
-    <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-03-01</dc:modified>
-    <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-03-01</dc:date>
+    <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-03-24</dc:modified>
+    <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-03-24</dc:date>
     <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.0</owl:versionInfo>
     <vann:preferredNamespacePrefix>cmd</vann:preferredNamespacePrefix>
-    <vann:preferredNamespaceUri>http://www.exemple.com/cmd#</vann:preferredNamespaceUri>
+    <vann:preferredNamespaceUri>https://w3id.org/cmd#</vann:preferredNamespaceUri>
     <dc:license rdf:resource="http://creativecommons.org/licenses/by-nc-sa/2.0/"/>
   </owl:Ontology>
 
-  <rdfs:Class rdf:about="http://www.exemple.com/cmd#TSoR">
+  <rdfs:Class rdf:about="https://w3id.org/cmd#TSoR">
     <rdfs:label xml:lang="en">TSoR: Tree-Structure of Requirements</rdfs:label>
     <rdfs:comment xml:lang="en">Defines a compound measure with a set of requirements as well as a structuration of these requirements through the use of analysis elements.</rdfs:comment>
   </rdfs:Class>
 
-  <rdfs:Class rdf:about="http://www.exemple.com/cmd#AnalysisElement">
+  <rdfs:Class rdf:about="https://w3id.org/cmd#AnalysisElement">
     <rdfs:label xml:lang="en">Analysis Element</rdfs:label>
     <rdfs:comment xml:lang="en">Node of the tree structure to classify requirements.</rdfs:comment>
   </rdfs:Class>
 
-  <rdfs:Class rdf:about="http://www.exemple.com/cmd#Requirement">
+  <rdfs:Class rdf:about="https://w3id.org/cmd#Requirement">
     <rdfs:label xml:lang="en">Requirement</rdfs:label>
     <rdfs:comment xml:lang="en">Node of the tree structure representing a given metric to evaluate a concrete element.</rdfs:comment>
   </rdfs:Class>
 
-  <rdfs:Class rdf:about="http://www.exemple.com/cmd#Implementation">
+  <rdfs:Class rdf:about="https://w3id.org/cmd#Implementation">
     <rdfs:label xml:lang="en">Implementation</rdfs:label>
     <rdfs:comment xml:lang="en">An implementation describing a procedure and/or an executable document. Can either be expressed in a query language, or be refering to an executable file, or be precisly describing the procedure.</rdfs:comment>
   </rdfs:Class>
 
 
-  <owl:ObjectProperty rdf:about="http://www.exemple.com/cmd#hasRoot">
+  <owl:ObjectProperty rdf:about="https://w3id.org/cmd#hasRoot">
     <rdfs:label xml:lang="en">has root</rdfs:label>
     <rdfs:comment xml:lang="en">The TSoR has a given root among the analysis element.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://www.exemple.com/cmd#TSoR"/>
-    <rdfs:range rdf:resource="http://www.exemple.com/cmd#AnalysisElement"/>
+    <rdfs:domain rdf:resource="https://w3id.org/cmd#TSoR"/>
+    <rdfs:range rdf:resource="https://w3id.org/cmd#AnalysisElement"/>
   </owl:ObjectProperty>
 
-  <owl:ObjectProperty rdf:about="http://www.exemple.com/cmd#isSpecifiedBy">
+  <owl:ObjectProperty rdf:about="https://w3id.org/cmd#isSpecifiedBy">
     <rdfs:label xml:lang="en">is specified by</rdfs:label>
     <rdfs:comment xml:lang="en">Structures analysis elements through this relation. An analysis element is specified by one or more other analysis elements that detail the analysis.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://www.exemple.com/cmd#AnalysisElement"/>
-    <rdfs:range rdf:resource="http://www.exemple.com/cmd#AnalysisElement"/>
+    <rdfs:domain rdf:resource="https://w3id.org/cmd#AnalysisElement"/>
+    <rdfs:range rdf:resource="https://w3id.org/cmd#AnalysisElement"/>
   </owl:ObjectProperty>
 
-  <owl:ObjectProperty rdf:about="http://www.exemple.com/cmd#expects">
+  <owl:ObjectProperty rdf:about="https://w3id.org/cmd#expects">
     <rdfs:label xml:lang="en">expects</rdfs:label>
     <rdfs:comment xml:lang="en">Associate a requirement with an analysis element: an analysis element expects a requirement.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://www.exemple.com/cmd#AnalysisElement"/>
-    <rdfs:range rdf:resource="http://www.exemple.com/cmd#Requirement"/>
+    <rdfs:domain rdf:resource="https://w3id.org/cmd#AnalysisElement"/>
+    <rdfs:range rdf:resource="https://w3id.org/cmd#Requirement"/>
   </owl:ObjectProperty>
 
-  <owl:ObjectProperty rdf:about="http://www.exemple.com/cmd#hasContent">
+  <owl:ObjectProperty rdf:about="https://w3id.org/cmd#hasContent">
     <rdfs:label xml:lang="en">hasContent</rdfs:label>
     <rdfs:comment xml:lang="en">A node of a TSoR has as content a given concept or metric.</rdfs:comment>
   </owl:ObjectProperty>
 
-  <owl:ObjectProperty rdf:about="http://www.exemple.com/cmd#isImplementedBy">
+  <owl:ObjectProperty rdf:about="https://w3id.org/cmd#isImplementedBy">
     <rdfs:label xml:lang="en">is implemented by</rdfs:label>
     <rdfs:comment xml:lang="en">A requirement is implemented by an implementation.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://www.exemple.com/cmd#Requirement"/>
-    <rdfs:range rdf:resource="http://www.exemple.com/cmd#Implementation"/>
+    <rdfs:domain rdf:resource="https://w3id.org/cmd#Requirement"/>
+    <rdfs:range rdf:resource="https://w3id.org/cmd#Implementation"/>
   </owl:ObjectProperty>
 
 
-  <owl:DatatypeProperty rdf:about="http://www.exemple.com/cmd#weight">
+  <owl:DatatypeProperty rdf:about="https://w3id.org/cmd#weight">
     <rdfs:label xml:lang="en">weight</rdfs:label>
     <rdfs:comment xml:lang="en">Number representing the relative importance of one node (analysis element or requirement) of a TSoR compared to its siblings.</rdfs:comment>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
   </owl:DatatypeProperty>
 
-  <owl:DatatypeProperty rdf:about="http://www.exemple.com/cmd#aggregFunction">
+  <owl:DatatypeProperty rdf:about="https://w3id.org/cmd#aggregFunction">
     <rdfs:label xml:lang="en">aggregation function</rdfs:label>
     <rdfs:comment xml:lang="en">Definition of a function expressing how to compute a unique global score based on the result obtained on each requirements and their weight.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://www.exemple.com/cmd#TSoR"/>
+    <rdfs:domain rdf:resource="https://w3id.org/cmd#TSoR"/>
   </owl:DatatypeProperty>
 
 
-  <owl:ObjectProperty rdf:about="http://www.exemple.com/cmd#isFollowedBy">
+  <owl:ObjectProperty rdf:about="https://w3id.org/cmd#isFollowedBy">
     <rdfs:label xml:lang="en">is followed by</rdfs:label>
     <rdfs:comment xml:lang="en">An implementation is followed by another implementation if the the second complement the first one.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://www.exemple.com/cmd#Implementation"/>
-    <rdfs:range rdf:resource="http://www.exemple.com/cmd#Implementation"/>
+    <rdfs:domain rdf:resource="https://w3id.org/cmd#Implementation"/>
+    <rdfs:range rdf:resource="https://w3id.org/cmd#Implementation"/>
   </owl:ObjectProperty>
 
 </rdf:RDF>

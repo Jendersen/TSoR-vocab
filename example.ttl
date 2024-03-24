@@ -7,7 +7,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dqv: <http://www.w3.org/ns/dqv#>
 
-@prefix cmd: <http://www.exemple.com/cmd#> .
+@prefix cmd: <https://w3id.org/cmd#> .
 @prefix : <http://www.exemple.com/kgacc#> .
 
 #################################
