@@ -1,0 +1,182 @@
+@prefix : <https://w3id.org/cmd#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/cmd#> .
+
+<https://w3id.org/cmd#> rdf:type owl:Ontology ;
+                         <http://purl.org/dc/terms/contributor> "Philippe Lamarre" ,
+                                                                "Sylvie Cazalens" ;
+                         <http://purl.org/dc/terms/created> "2022-25-08"^^xsd:date ;
+                         <http://purl.org/dc/terms/creator> "Jennie Andersen" ;
+                         <http://purl.org/dc/terms/date> "2024-03-24"^^xsd:date ;
+                         <http://purl.org/dc/terms/license> <http://creativecommons.org/licenses/by-nc-sa/2.0/> ;
+                         <http://purl.org/dc/terms/modified> "2024-03-24"^^xsd:date ;
+                         <http://purl.org/vocab/vann/preferredNamespacePrefix> "cmd" ;
+                         <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/cmd#" ;
+                         rdfs:comment "This document is a vocabulary to describe compound measures, i.e. measures with several metric or item that are organized with serveral dimensions. The description of such a measure relies on a Tree-Structure of Requirement (TSoR): a set of requirements structured hierarchicaly with analysis element. A TSoR represents the main measure. Several information may be added to explicitely indicate how the overall score on the measure should be calculated based on the hierarchy, relative importance of the node of the hierarchy and an aggregation function. The measure can be described completely and unambiguously from the organisation to the requirements and the implementation."@en ;
+                         rdfs:label "Compound Measure Description"@en ;
+                         owl:versionInfo 2.0 ;
+                         <http://www.w3.org/2004/02/skos/core#altLabel> "Complex Measure Definition"@en ,
+                                                                        "CMD-v" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/contributor
+<http://purl.org/dc/terms/contributor> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/date
+<http://purl.org/dc/terms/date> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+<http://purl.org/dc/terms/modified> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+<http://www.w3.org/2004/02/skos/core#altLabel> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/cmd#expects
+:expects rdf:type owl:ObjectProperty ;
+         rdfs:domain :AnalysisElement ;
+         rdfs:range :Requirement ;
+         rdfs:comment "Associate a requirement with an analysis element: an analysis element expects a requirement."@en ;
+         rdfs:label "expects"@en .
+
+
+###  https://w3id.org/cmd#hasContent
+:hasContent rdf:type owl:ObjectProperty ;
+            rdfs:comment "A node of a TSoR has as content a given concept or metric."@en ;
+            rdfs:label "hasContent"@en .
+
+
+###  https://w3id.org/cmd#hasRoot
+:hasRoot rdf:type owl:ObjectProperty ;
+         rdfs:domain :TSoR ;
+         rdfs:range :AnalysisElement ;
+         rdfs:comment "The TSoR has a given root among the analysis element."@en ;
+         rdfs:label "has root"@en .
+
+
+###  https://w3id.org/cmd#isFollowedBy
+:isFollowedBy rdf:type owl:ObjectProperty ;
+              rdfs:domain :Implementation ;
+              rdfs:range :Implementation ;
+              rdfs:comment "An implementation is followed by another implementation if the the second complement the first one."@en ;
+              rdfs:label "is followed by"@en .
+
+
+###  https://w3id.org/cmd#isImplementedBy
+:isImplementedBy rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Requirement ;
+                 rdfs:range :Implementation ;
+                 rdfs:comment "A requirement is implemented by an implementation."@en ;
+                 rdfs:label "is implemented by"@en .
+
+
+###  https://w3id.org/cmd#isSpecifiedBy
+:isSpecifiedBy rdf:type owl:ObjectProperty ;
+               rdfs:domain :AnalysisElement ;
+               rdfs:range :AnalysisElement ;
+               rdfs:comment "Structures analysis elements through this relation. An analysis element is specified by one or more other analysis elements that detail the analysis."@en ;
+               rdfs:label "is specified by"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/cmd#aggregFunction
+:aggregFunction rdf:type owl:DatatypeProperty ;
+                rdfs:domain :TSoR ;
+                rdfs:comment "Definition of a function expressing how to compute a unique global score based on the result obtained on each requirements and their weight."@en ;
+                rdfs:label "aggregation function"@en .
+
+
+###  https://w3id.org/cmd#weight
+:weight rdf:type owl:DatatypeProperty ;
+        rdfs:range xsd:double ;
+        rdfs:comment "Number representing the relative importance of one node (analysis element or requirement) of a TSoR compared to its siblings."@en ;
+        rdfs:label "weight"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/vocommons/voaf#Vocabulary
+<http://purl.org/vocommons/voaf#Vocabulary> rdf:type owl:Class .
+
+
+###  https://w3id.org/cmd#AnalysisElement
+:AnalysisElement rdf:type owl:Class ;
+                 rdfs:comment "Node of the tree structure to classify requirements."@en ;
+                 rdfs:label "Analysis Element"@en .
+
+
+###  https://w3id.org/cmd#Implementation
+:Implementation rdf:type owl:Class ;
+                rdfs:comment "An implementation describing a procedure and/or an executable document. Can either be expressed in a query language, or be refering to an executable file, or be precisly describing the procedure."@en ;
+                rdfs:label "Implementation"@en .
+
+
+###  https://w3id.org/cmd#Requirement
+:Requirement rdf:type owl:Class ;
+             rdfs:comment "Node of the tree structure representing a given metric to evaluate a concrete element."@en ;
+             rdfs:label "Requirement"@en .
+
+
+###  https://w3id.org/cmd#TSoR
+:TSoR rdf:type owl:Class ;
+      rdfs:comment "Defines a compound measure with a set of requirements as well as a structuration of these requirements through the use of analysis elements."@en ;
+      rdfs:label "TSoR: Tree-Structure of Requirements"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://w3id.org/cmd#
+<https://w3id.org/cmd#> rdf:type owl:NamedIndividual ,
+                                 <http://purl.org/vocommons/voaf#Vocabulary> .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

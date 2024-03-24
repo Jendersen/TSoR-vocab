@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+ <link rel="stylesheet" href="resources/primer.css" media="screen" />    <link rel="stylesheet" href="resources/rec.css" media="screen" />    <link rel="stylesheet" href="resources/extra.css" media="screen" />    <link rel="stylesheet" href="resources/owl.css" media="screen" />    <title>Compound Measure Description</title>
+
+
+<!-- SCHEMA.ORG METADATA -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/cmd#","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/cmd#","name":"Compound Measure Description", "headline":"Document describing the ontology https://w3id.org/cmd#", "dateReleased":"2022-25-08", "dateModified":"2024-03-24", "version":"2.0", "license":"http://creativecommons.org/licenses/by-nc-sa/2.0/", "author":[{"@type":"Person","name":"Jennie Andersen"}], "contributor":[{"@type":"Person","name":"Philippe Lamarre"},{"@type":"Person","name":"Sylvie Cazalens"}]}</script>
+
+<script src="resources/jquery.js"></script> 
+<script src="resources/marked.min.js"></script> 
+    <script> 
+function loadHash() {
+  jQuery(".markdown").each(function(el){jQuery(this).after(marked(jQuery(this).text())).remove()});
+	var hash = location.hash;
+	if($(hash).offset()!=null){
+	  $('html, body').animate({scrollTop: $(hash).offset().top}, 0);
+}
+	loadTOC();
+}
+function loadTOC(){
+	//process toc dynamically
+	  var t='<h2>Table of contents</h2><ul>';i = 1;j=0;
+	  jQuery(".list").each(function(){
+		if(jQuery(this).is('h2')){
+			if(j>0){
+				t+='</ul>';
+				j=0;
+			}
+			t+= '<li>'+i+'. <a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+			i++;
+		}
+		if(jQuery(this).is('h3')){
+			if(j==0){
+				t+='<ul>';
+			}
+			j++;
+			t+= '<li>'+(i-1)+'.'+j+'. '+'<a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+		}
+	  });
+	  t+='</ul>';
+	  $("#toc").html(t); 
+}
+$(function(){
+    loadHash();
+}); $.fn.ignore = function(sel){
+        return this.clone().find(sel||">*").remove().end();
+ }; 
+   </script> 
+  </head> 
+
+<body>
+<div class="container">
+<div class="head">
+<div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
+<h1>Compound Measure Description</h1>
+<h2>Release: 2022-25-08</h2>
+
+
+<dl>
+<dt>Modified on: 2024-03-24</dt>
+<dt>Latest version:</dt>
+<dd><a href="https://w3id.org/cmd#">https://w3id.org/cmd#</a></dd>
+<dt>Revision:</dt>
+<dd>2.0</dd>
+<dt>Authors:</dt>
+<dd>Jennie Andersen</dd>
+
+<dt>Contributors:</dt>
+<dd>Philippe Lamarre</dd><dd>Sylvie Cazalens</dd>
+
+<dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="http://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank"><img src="https://img.shields.io/badge/License-http://creativecommons.org/licenses/by_nc_sa/2.0/-blue.svg" alt="http://creativecommons.org/licenses/by-nc-sa/2.0/" /></a>
+</dd><!-- <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --><dt>Cite as:</dt>
+<dd>Compound Measure Description Vocabulary, Jennie Andersen, 2024.</dd>
+</dl>
+
+<hr/>
+</div>
+<div class="status">
+<div>
+<span>Ontology Specification Draft</span>
+</div>
+</div><div id="toc"></div> 
+
+<!--INTRODUCTION SECTION-->
+    <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+   <span class="markdown">
+      This document is a vocabulary to describe compound measures, i.e. measures with several metric or item that are organized with serveral dimensions. The description of such a measure relies on a Tree-Structure of Requirement (TSoR): a set of requirements structured hierarchicaly with analysis element. A TSoR represents the main measure. Several information may be added to explicitely indicate how the overall score on the measure should be calculated based on the hierarchy, relative importance of the node of the hierarchy and an aggregation function. The measure can be described completely and unambiguously from the organisation to the requirements and the implementation.
+   </span>
+<div id="namespacedeclarations">
+<h3 id="ns" class="list">Namespace declarations</h3>
+<div id="ns" align="center">
+<table>
+<caption> <a href="#ns"> Table 1</a>: Namespaces used in the document </caption>
+<tbody>
+<tr><td><b>cmd</b></td><td>&lt;https://w3id.org/cmd#&gt;</td></tr>
+<tr><td><b>dc</b></td><td>&lt;http://purl.org/dc/terms/&gt;</td></tr>
+<tr><td><b>owl</b></td><td>&lt;http://www.w3.org/2002/07/owl#&gt;</td></tr>
+<tr><td><b>rdf</b></td><td>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</td></tr>
+<tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</td></tr>
+<tr><td><b>skos</b></td><td>&lt;http://www.w3.org/2004/02/skos/core#&gt;</td></tr>
+<tr><td><b>sw</b></td><td>&lt;http://www.w3.org/2003/06/sw-vocab-status/ns#&gt;</td></tr>
+<tr><td><b>vann</b></td><td>&lt;http://purl.org/vocab/vann/&gt;</td></tr>
+<tr><td><b>voaf</b></td><td>&lt;http://purl.org/vocommons/voaf#&gt;</td></tr>
+<tr><td><b>xml</b></td><td>&lt;http://www.w3.org/XML/1998/namespace&gt;</td></tr>
+<tr><td><b>xsd</b></td><td>&lt;http://www.w3.org/2001/XMLSchema#&gt;</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+  
+
+<!--OVERVIEW SECTION-->
+    <div id="overview"><h2 id="overv" class="list">Compound Measure Description: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This ontology has the following classes and properties.</span>
+<h4>Classes</h4>
+<ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#AnalysisElement" title="https://w3id.org/cmd#AnalysisElement">Analysis Element</a>
+   </li>
+   <li>
+      <a href="#Implementation" title="https://w3id.org/cmd#Implementation">Implementation</a>
+   </li>
+   <li>
+      <a href="#Requirement" title="https://w3id.org/cmd#Requirement">Requirement</a>
+   </li>
+   <li>
+      <a href="#TSoR" title="https://w3id.org/cmd#TSoR">TSoR: Tree-Structure of Requirements</a>
+   </li>
+</ul><h4>Object Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#expects" title="https://w3id.org/cmd#expects">expects</a>
+   </li>
+   <li>
+      <a href="#hasRoot" title="https://w3id.org/cmd#hasRoot">has root</a>
+   </li>
+   <li>
+      <a href="#hasContent" title="https://w3id.org/cmd#hasContent">hasContent</a>
+   </li>
+   <li>
+      <a href="#isFollowedBy" title="https://w3id.org/cmd#isFollowedBy">is followed by</a>
+   </li>
+   <li>
+      <a href="#isImplementedBy" title="https://w3id.org/cmd#isImplementedBy">is implemented by</a>
+   </li>
+   <li>
+      <a href="#isSpecifiedBy" title="https://w3id.org/cmd#isSpecifiedBy">is specified by</a>
+   </li>
+</ul><h4>Data Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#aggregFunction" title="https://w3id.org/cmd#aggregFunction">aggregation function</a>
+   </li>
+   <li>
+      <a href="#weight" title="https://w3id.org/cmd#weight">weight</a>
+   </li>
+</ul>
+</div>
+  
+<!--CROSSREF SECTION-->
+   <div id="crossref"><h2 id="crossreference" class="list">Cross-reference for Compound Measure Description classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by Compound Measure Description.
+<div xmlns:widoco="https://w3id.org/widoco/vocab#"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     id="classes">
+   <h3 id="classes-headline" class="list">Classes</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#AnalysisElement" title="https://w3id.org/cmd#AnalysisElement">Analysis Element</a>
+      </li>
+      <li>
+         <a href="#Implementation" title="https://w3id.org/cmd#Implementation">Implementation</a>
+      </li>
+      <li>
+         <a href="#Requirement" title="https://w3id.org/cmd#Requirement">Requirement</a>
+      </li>
+      <li>
+         <a href="#TSoR" title="https://w3id.org/cmd#TSoR">TSoR: Tree-Structure of Requirements</a>
+      </li>
+   </ul>
+   <div class="entity" id="AnalysisElement">
+      <h3>Analysis Element<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/cmd#AnalysisElement</p>
+      <div class="comment">
+         <span class="markdown">Node of the tree structure to classify requirements.</span>
+      </div>
+      <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#expects" title="https://w3id.org/cmd#expects">expects</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#isSpecifiedBy" title="https://w3id.org/cmd#isSpecifiedBy">is specified by</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#hasRoot" title="https://w3id.org/cmd#hasRoot">has root</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#isSpecifiedBy" title="https://w3id.org/cmd#isSpecifiedBy">is specified by</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Implementation">
+      <h3>Implementation<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/cmd#Implementation</p>
+      <div class="comment">
+         <span class="markdown">An implementation describing a procedure and/or an executable document. Can either be expressed in a query language, or be refering to an executable file, or be precisly describing the procedure.</span>
+      </div>
+      <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#isFollowedBy" title="https://w3id.org/cmd#isFollowedBy">is followed by</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#isFollowedBy" title="https://w3id.org/cmd#isFollowedBy">is followed by</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#isImplementedBy" title="https://w3id.org/cmd#isImplementedBy">is implemented by</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Requirement">
+      <h3>Requirement<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/cmd#Requirement</p>
+      <div class="comment">
+         <span class="markdown">Node of the tree structure representing a given metric to evaluate a concrete element.</span>
+      </div>
+      <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#isImplementedBy" title="https://w3id.org/cmd#isImplementedBy">is implemented by</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#expects" title="https://w3id.org/cmd#expects">expects</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="TSoR">
+      <h3>TSoR: Tree-Structure of Requirements<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/cmd#TSoR</p>
+      <div class="comment">
+         <span class="markdown">Defines a compound measure with a set of requirements as well as a structuration of these requirements through the use of analysis elements.</span>
+      </div>
+      <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#aggregFunction" title="https://w3id.org/cmd#aggregFunction">aggregation function</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#hasRoot" title="https://w3id.org/cmd#hasRoot">has root</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     id="objectproperties">
+   <h3 id="properties" class="list">Object Properties</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#expects" title="https://w3id.org/cmd#expects">expects</a>
+      </li>
+      <li>
+         <a href="#hasRoot" title="https://w3id.org/cmd#hasRoot">has root</a>
+      </li>
+      <li>
+         <a href="#hasContent" title="https://w3id.org/cmd#hasContent">hasContent</a>
+      </li>
+      <li>
+         <a href="#isFollowedBy" title="https://w3id.org/cmd#isFollowedBy">is followed by</a>
+      </li>
+      <li>
+         <a href="#isImplementedBy" title="https://w3id.org/cmd#isImplementedBy">is implemented by</a>
+      </li>
+      <li>
+         <a href="#isSpecifiedBy" title="https://w3id.org/cmd#isSpecifiedBy">is specified by</a>
+      </li>
+   </ul>
+   <div class="entity" id="expects">
+      <h3>expects<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/cmd#expects</p>
+      <div class="comment">
+         <span class="markdown">Associate a requirement with an analysis element: an analysis element expects a requirement.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#AnalysisElement" title="https://w3id.org/cmd#AnalysisElement">Analysis Element</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#Requirement" title="https://w3id.org/cmd#Requirement">Requirement</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasRoot">
+      <h3>has root<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/cmd#hasRoot</p>
+      <div class="comment">
+         <span class="markdown">The TSoR has a given root among the analysis element.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#TSoR" title="https://w3id.org/cmd#TSoR">TSoR: Tree-Structure of Requirements</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#AnalysisElement" title="https://w3id.org/cmd#AnalysisElement">Analysis Element</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasContent">
+      <h3>hasContent<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/cmd#hasContent</p>
+      <div class="comment">
+         <span class="markdown">A node of a TSoR has as content a given concept or metric.</span>
+      </div>
+   </div>
+   <div class="entity" id="isFollowedBy">
+      <h3>is followed by<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/cmd#isFollowedBy</p>
+      <div class="comment">
+         <span class="markdown">An implementation is followed by another implementation if the the second complement the first one.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Implementation" title="https://w3id.org/cmd#Implementation">Implementation</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#Implementation" title="https://w3id.org/cmd#Implementation">Implementation</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="isImplementedBy">
+      <h3>is implemented by<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/cmd#isImplementedBy</p>
+      <div class="comment">
+         <span class="markdown">A requirement is implemented by an implementation.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Requirement" title="https://w3id.org/cmd#Requirement">Requirement</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#Implementation" title="https://w3id.org/cmd#Implementation">Implementation</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="isSpecifiedBy">
+      <h3>is specified by<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/cmd#isSpecifiedBy</p>
+      <div class="comment">
+         <span class="markdown">Structures analysis elements through this relation. An analysis element is specified by one or more other analysis elements that detail the analysis.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#AnalysisElement" title="https://w3id.org/cmd#AnalysisElement">Analysis Element</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#AnalysisElement" title="https://w3id.org/cmd#AnalysisElement">Analysis Element</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     id="dataproperties">
+   <h3 id="dataproperties-headline" class="list">Data Properties</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#aggregFunction" title="https://w3id.org/cmd#aggregFunction">aggregation function</a>
+      </li>
+      <li>
+         <a href="#weight" title="https://w3id.org/cmd#weight">weight</a>
+      </li>
+   </ul>
+   <div class="entity" id="aggregFunction">
+      <h3>aggregation function<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/cmd#aggregFunction</p>
+      <div class="comment">
+         <span class="markdown">Definition of a function expressing how to compute a unique global score based on the result obtained on each requirements and their weight.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#TSoR" title="https://w3id.org/cmd#TSoR">TSoR: Tree-Structure of Requirements</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="weight">
+      <h3>weight<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/cmd#weight</p>
+      <div class="comment">
+         <span class="markdown">Number representing the relative importance of one node (analysis element or requirement) of a TSoR compared to its siblings.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has range</dt>
+            <dd>
+               <a href="http://www.w3.org/2001/XMLSchema#double"
+                  target="_blank"
+                  title="http://www.w3.org/2001/XMLSchema#double">double</a>
+            </dd>
+         </dl>
+      </div>
+   </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
+</div>
+</div>
+</div>
+    
+
+<!--REFERENCES SECTION-->
+  <div id="references">
+<h2 id="ref" class="list">References <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+Add your references here. It is recommended to have them as a list.</span>
+
+</div>
+<div id="acknowledgments">
+<h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<p>
+The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p>
+</div>
+
+
+</div>
+</body>
+</html>

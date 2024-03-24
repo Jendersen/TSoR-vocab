@@ -1,0 +1,179 @@
+<https://w3id.org/cmd#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://w3id.org/cmd#> <http://purl.org/dc/terms/contributor> "Philippe Lamarre" .
+<https://w3id.org/cmd#> <http://purl.org/dc/terms/contributor> "Sylvie Cazalens" .
+<https://w3id.org/cmd#> <http://purl.org/dc/terms/created> "2022-25-08"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/cmd#> <http://purl.org/dc/terms/creator> "Jennie Andersen" .
+<https://w3id.org/cmd#> <http://purl.org/dc/terms/date> "2024-03-24"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/cmd#> <http://purl.org/dc/terms/license> <http://creativecommons.org/licenses/by-nc-sa/2.0/> .
+<https://w3id.org/cmd#> <http://purl.org/dc/terms/modified> "2024-03-24"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/cmd#> <http://purl.org/vocab/vann/preferredNamespacePrefix> "cmd" .
+<https://w3id.org/cmd#> <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/cmd#" .
+<https://w3id.org/cmd#> <http://www.w3.org/2000/01/rdf-schema#comment> "This document is a vocabulary to describe compound measures, i.e. measures with several metric or item that are organized with serveral dimensions. The description of such a measure relies on a Tree-Structure of Requirement (TSoR): a set of requirements structured hierarchicaly with analysis element. A TSoR represents the main measure. Several information may be added to explicitely indicate how the overall score on the measure should be calculated based on the hierarchy, relative importance of the node of the hierarchy and an aggregation function. The measure can be described completely and unambiguously from the organisation to the requirements and the implementation."@en .
+<https://w3id.org/cmd#> <http://www.w3.org/2000/01/rdf-schema#label> "Compound Measure Description"@en .
+<https://w3id.org/cmd#> <http://www.w3.org/2002/07/owl#versionInfo> "2.0"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/cmd#> <http://www.w3.org/2004/02/skos/core#altLabel> "Complex Measure Definition"@en .
+<https://w3id.org/cmd#> <http://www.w3.org/2004/02/skos/core#altLabel> "CMD-v" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/terms/contributor
+<http://purl.org/dc/terms/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/date
+<http://purl.org/dc/terms/date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/modified
+<http://purl.org/dc/terms/modified> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#altLabel
+<http://www.w3.org/2004/02/skos/core#altLabel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Datatypes
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/2001/XMLSchema#date
+<http://www.w3.org/2001/XMLSchema#date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/cmd#expects
+<https://w3id.org/cmd#expects> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/cmd#expects> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/cmd#AnalysisElement> .
+<https://w3id.org/cmd#expects> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/cmd#Requirement> .
+<https://w3id.org/cmd#expects> <http://www.w3.org/2000/01/rdf-schema#comment> "Associate a requirement with an analysis element: an analysis element expects a requirement."@en .
+<https://w3id.org/cmd#expects> <http://www.w3.org/2000/01/rdf-schema#label> "expects"@en .
+# 
+# https://w3id.org/cmd#hasContent
+<https://w3id.org/cmd#hasContent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/cmd#hasContent> <http://www.w3.org/2000/01/rdf-schema#comment> "A node of a TSoR has as content a given concept or metric."@en .
+<https://w3id.org/cmd#hasContent> <http://www.w3.org/2000/01/rdf-schema#label> "hasContent"@en .
+# 
+# https://w3id.org/cmd#hasRoot
+<https://w3id.org/cmd#hasRoot> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/cmd#hasRoot> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/cmd#TSoR> .
+<https://w3id.org/cmd#hasRoot> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/cmd#AnalysisElement> .
+<https://w3id.org/cmd#hasRoot> <http://www.w3.org/2000/01/rdf-schema#comment> "The TSoR has a given root among the analysis element."@en .
+<https://w3id.org/cmd#hasRoot> <http://www.w3.org/2000/01/rdf-schema#label> "has root"@en .
+# 
+# https://w3id.org/cmd#isFollowedBy
+<https://w3id.org/cmd#isFollowedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/cmd#isFollowedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/cmd#Implementation> .
+<https://w3id.org/cmd#isFollowedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/cmd#Implementation> .
+<https://w3id.org/cmd#isFollowedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "An implementation is followed by another implementation if the the second complement the first one."@en .
+<https://w3id.org/cmd#isFollowedBy> <http://www.w3.org/2000/01/rdf-schema#label> "is followed by"@en .
+# 
+# https://w3id.org/cmd#isImplementedBy
+<https://w3id.org/cmd#isImplementedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/cmd#isImplementedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/cmd#Requirement> .
+<https://w3id.org/cmd#isImplementedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/cmd#Implementation> .
+<https://w3id.org/cmd#isImplementedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "A requirement is implemented by an implementation."@en .
+<https://w3id.org/cmd#isImplementedBy> <http://www.w3.org/2000/01/rdf-schema#label> "is implemented by"@en .
+# 
+# https://w3id.org/cmd#isSpecifiedBy
+<https://w3id.org/cmd#isSpecifiedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/cmd#isSpecifiedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/cmd#AnalysisElement> .
+<https://w3id.org/cmd#isSpecifiedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/cmd#AnalysisElement> .
+<https://w3id.org/cmd#isSpecifiedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Structures analysis elements through this relation. An analysis element is specified by one or more other analysis elements that detail the analysis."@en .
+<https://w3id.org/cmd#isSpecifiedBy> <http://www.w3.org/2000/01/rdf-schema#label> "is specified by"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/cmd#aggregFunction
+<https://w3id.org/cmd#aggregFunction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/cmd#aggregFunction> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/cmd#TSoR> .
+<https://w3id.org/cmd#aggregFunction> <http://www.w3.org/2000/01/rdf-schema#comment> "Definition of a function expressing how to compute a unique global score based on the result obtained on each requirements and their weight."@en .
+<https://w3id.org/cmd#aggregFunction> <http://www.w3.org/2000/01/rdf-schema#label> "aggregation function"@en .
+# 
+# https://w3id.org/cmd#weight
+<https://w3id.org/cmd#weight> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/cmd#weight> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#double> .
+<https://w3id.org/cmd#weight> <http://www.w3.org/2000/01/rdf-schema#comment> "Number representing the relative importance of one node (analysis element or requirement) of a TSoR compared to its siblings."@en .
+<https://w3id.org/cmd#weight> <http://www.w3.org/2000/01/rdf-schema#label> "weight"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/vocommons/voaf#Vocabulary
+<http://purl.org/vocommons/voaf#Vocabulary> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://w3id.org/cmd#AnalysisElement
+<https://w3id.org/cmd#AnalysisElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cmd#AnalysisElement> <http://www.w3.org/2000/01/rdf-schema#comment> "Node of the tree structure to classify requirements."@en .
+<https://w3id.org/cmd#AnalysisElement> <http://www.w3.org/2000/01/rdf-schema#label> "Analysis Element"@en .
+# 
+# https://w3id.org/cmd#Implementation
+<https://w3id.org/cmd#Implementation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cmd#Implementation> <http://www.w3.org/2000/01/rdf-schema#comment> "An implementation describing a procedure and/or an executable document. Can either be expressed in a query language, or be refering to an executable file, or be precisly describing the procedure."@en .
+<https://w3id.org/cmd#Implementation> <http://www.w3.org/2000/01/rdf-schema#label> "Implementation"@en .
+# 
+# https://w3id.org/cmd#Requirement
+<https://w3id.org/cmd#Requirement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cmd#Requirement> <http://www.w3.org/2000/01/rdf-schema#comment> "Node of the tree structure representing a given metric to evaluate a concrete element."@en .
+<https://w3id.org/cmd#Requirement> <http://www.w3.org/2000/01/rdf-schema#label> "Requirement"@en .
+# 
+# https://w3id.org/cmd#TSoR
+<https://w3id.org/cmd#TSoR> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cmd#TSoR> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines a compound measure with a set of requirements as well as a structuration of these requirements through the use of analysis elements."@en .
+<https://w3id.org/cmd#TSoR> <http://www.w3.org/2000/01/rdf-schema#label> "TSoR: Tree-Structure of Requirements"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/cmd#
+<https://w3id.org/cmd#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/cmd#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocommons/voaf#Vocabulary> .
+# 
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
