@@ -14,12 +14,12 @@
   dc:creator "Jennie Andersen" ;
   dc:contributor "Sylvie Cazalens", "Philippe Lamarre" ;
   dc:created "2022-25-08"^^xsd:date ;
-  dc:modified "2024-03-01"^^xsd:date ;
-  dc:date "2024-03-01"^^xsd:date ;
+  dc:modified "2024-03-24"^^xsd:date ;
+  dc:date "2024-03-24"^^xsd:date ;
   owl:versionInfo 2.0 ;
   vann:preferredNamespacePrefix "cmd" ;
   vann:preferredNamespaceUri "http://www.exemple.com/cmd#" ;
-  sw:term_status "UnderDevelopment" .
+  dc:license <http://creativecommons.org/licenses/by-nc-sa/2.0/> .
 
 
 #################################
