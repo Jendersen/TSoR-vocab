@@ -23,7 +23,7 @@
     <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.0</owl:versionInfo>
     <vann:preferredNamespacePrefix>cmd</vann:preferredNamespacePrefix>
     <vann:preferredNamespaceUri>http://www.exemple.com/cmd#</vann:preferredNamespaceUri>
-    <sw:term_status>UnderDevelopment</sw:term_status>
+    <dc:license rdf:resource="http://creativecommons.org/licenses/by-nc-sa/2.0/"/>
   </owl:Ontology>
 
   <rdfs:Class rdf:about="http://www.exemple.com/cmd#TSoR">
