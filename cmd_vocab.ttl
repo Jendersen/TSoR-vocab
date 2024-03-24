@@ -6,9 +6,6 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix sw: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 
-
-@base <https://w3id.org/games/spec/coil#> .
-
 <https://w3id.org/cmd#>
   a owl:Ontology, <http://purl.org/vocommons/voaf#Vocabulary> ;
   rdfs:label "Compound Measure Description"@en ;
@@ -21,7 +18,7 @@
   dc:date "2024-03-24"^^xsd:date ;
   owl:versionInfo 2.0 ;
   vann:preferredNamespacePrefix "cmd" ;
-  vann:preferredNamespaceUri "http://www.exemple.com/cmd#" ;
+  vann:preferredNamespaceUri "https://w3id.org/cmd#" ;
   dc:license <http://creativecommons.org/licenses/by-nc-sa/2.0/> .
 
 
