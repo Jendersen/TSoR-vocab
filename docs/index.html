@@ -148,6 +148,7 @@ $(function(){
    therefore its content is of type <a href="https://www.w3.org/TR/vocab-dqv/#dqv:Metric">dqv:Metric</a>.
    Note that analysis elements and requirements can only structure a single TSoR.
    However, their contents, concepts or metrics, can appear in multiple TSoRs.
+   The cardinalities, shown in gray in Figure 1, ensure that the TSoR is properly designed.
 </p>
 <p class="markdown"></p>
    Additional information can be added to the structure to make it a fully defined measure.
@@ -162,6 +163,17 @@ $(function(){
 <br>
 <i>Figure 1 : CMD-v core concepts and relations</i>
 </center>
+
+<h4>How to use</h4>
+<p>
+   Figure 2 shows a small example of a TSoR that represents a part of the <a href="https://fair-checker.france-bioinformatique.fr/">FAIR-Checker</a> measure: it considers only the "A1.1" sub-principles.
+</p>
+<center>
+<img src = "resources/illustration_FAIR-C_A1.svg" alt="Example of how to use CMD"/>
+<br>
+<i>Figure 2 : Example of use of CMD on a sub-part of the FAIR-Checker measure</i>
+</center>
+
 <h4>To go further</h4>
 <p class="markdown">
    <a href="https://raw.githubusercontent.com/Jendersen/TSoR-vocab/main/cmd_shacl.ttl">SHACL shapes</a> are defined to ensure that the TSoR defined with the vocabulary is well-formed, i.e. it actually forms a tree structure.
