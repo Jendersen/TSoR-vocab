@@ -2,8 +2,11 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
- <link rel="stylesheet" href="resources/primer.css" media="screen" />    <link rel="stylesheet" href="resources/rec.css" media="screen" />    <link rel="stylesheet" href="resources/extra.css" media="screen" />    <link rel="stylesheet" href="resources/owl.css" media="screen" />    <title>Compound Measure Description</title>
-
+ <link rel="stylesheet" href="resources/primer.css" media="screen" />
+ <link rel="stylesheet" href="resources/rec.css" media="screen" />
+ <link rel="stylesheet" href="resources/extra.css" media="screen" />
+ <link rel="stylesheet" href="resources/owl.css" media="screen" />
+ <title>Compound Measure Description</title>
 
 <!-- SCHEMA.ORG METADATA -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/cmd#","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/cmd#","name":"Compound Measure Description", "headline":"Document describing the ontology https://w3id.org/cmd#", "dateReleased":"2022-25-08", "dateModified":"2024-03-24", "version":"2.0", "license":"http://creativecommons.org/licenses/by-nc-sa/2.0/", "author":[{"@type":"Person","name":"Jennie Andersen"}], "contributor":[{"@type":"Person","name":"Philippe Lamarre"},{"@type":"Person","name":"Sylvie Cazalens"}]}</script>
@@ -54,58 +57,79 @@ $(function(){
 <div class="container">
 <div class="head">
 <div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
-<h1>Compound Measure Description</h1>
-<h2>Release: 2022-25-08</h2>
+<h1>Compound Measure Description (CMD)</h1>
+<h2>Release: 2024-03-24</h2>
 
 
 <dl>
-<dt>Modified on: 2024-03-24</dt>
-<dt>Latest version:</dt>
-<dd><a href="https://w3id.org/cmd#">https://w3id.org/cmd#</a></dd>
-<dt>Revision:</dt>
-<dd>2.0</dd>
-<dt>Authors:</dt>
-<dd>Jennie Andersen</dd>
+   <!-- <dt>Modified on: 2024-03-24</dt> -->
+   <dt>Latest version:</dt>
+   <dd><a href="https://w3id.org/cmd#">https://w3id.org/cmd#</a></dd>
+   <dt>Revision:</dt>
+   <dd>2.0</dd>
+   <dt>Authors:</dt>
+   <dd><a href="https://orcid.org/0000-0001-6907-0136">Jennie Andersen</a> (LIRIS, INSA Lyon)</dd>
 
-<dt>Contributors:</dt>
-<dd>Philippe Lamarre</dd><dd>Sylvie Cazalens</dd>
+   <dt>Contributors:</dt>
+   <dd>Philippe Lamarre (LIRIS, INSA Lyon)</dd><dd>Sylvie Cazalens (LIRIS, INSA Lyon)</dd>
 
-<dt>Download serialization:</dt><dd><span><a href="cmd.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="cmd.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="cmd.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="cmd.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="http://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank"><img src="https://img.shields.io/badge/License-http://creativecommons.org/licenses/by_nc_sa/2.0/-blue.svg" alt="http://creativecommons.org/licenses/by-nc-sa/2.0/" /></a>
-</dd><!-- <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --><dt>Cite as:</dt>
-<dd>Compound Measure Description Vocabulary, Jennie Andersen, 2024.</dd>
+   <dt>Feedback:</dt>
+   <dd><a href="https://github.com/Jendersen/TSoR-vocab">GitHub Jendersen/TSoR-vocab</a></dd>
+
+   <dt>Download serialization:</dt><dd><span><a href="cmd.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="cmd.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="cmd.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="cmd.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="http://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank"><img src="https://img.shields.io/badge/License-http://creativecommons.org/licenses/by_nc_sa/2.0/-blue.svg" alt="http://creativecommons.org/licenses/by-nc-sa/2.0/" /></a>
+   </dd><!-- <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --><dt>Cite as:</dt>
+   <dd>Compound Measure Description Vocabulary, Jennie Andersen, 2024.</dd>
 </dl>
 
 <hr/>
 </div>
 <div class="status">
 <div>
-<span>Ontology Specification Draft</span>
+   <span>Ontology Specification Draft</span>
 </div>
-</div><div id="toc"></div> 
+</div>
+<div id="toc"></div> 
 
 <!--INTRODUCTION SECTION-->
-    <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
    <span class="markdown">
-      This document is a vocabulary to describe compound measures, i.e. measures with several metric or item that are organized with serveral dimensions. The description of such a measure relies on a Tree-Structure of Requirement (TSoR): a set of requirements structured hierarchicaly with analysis element. A TSoR represents the main measure. Several information may be added to explicitely indicate how the overall score on the measure should be calculated based on the hierarchy, relative importance of the node of the hierarchy and an aggregation function. The measure can be described completely and unambiguously from the organisation to the requirements and the implementation.
+      This vocabulary enables to describe compound measures, i.e. measures with several metric or item that are organized with serveral dimensions.
+      It is called Compound Measure Description Vocabulary (or CMD, or Complex Measure Definition, or Composite Measure Declaration).
+      <br>
+      The description of such a measure relies on a Tree-Structure of Requirement (TSoR): a set of requirements structured hierarchicaly with analysis elements.
+      A TSoR consists of structuring requirements, the atomic items to be evaluated, with analysis elements, i.e., concepts that classify requirements.
+      Hence, a <i>TSoR</i> is composed of two kinds of elements and relations.
+      First, the <i>requirements</i> should be thought of as a specification for an implementation and focus on evaluating a single thing.
+      They are structured according to <i>analysis elements</i>, which are a kind of classifier of the requirements (bottom-up vision), or conversely, a refinement of an analysis (top-down vision).
+      These analysis elements are structured with a relation <i>is specified by</i>.
+      It indicates that an analysis element splits into subelements.
+      Requirements are associated with analysis elements by the relation <i>expects</i>.
+      All together they form a rooted tree.
+      <br>
+      Several information may be added to explicitely indicate how the overall score on the measure should be calculated based on the hierarchy, the relative importance of the nodes of the hierarchy and an aggregation function.
+      The measure can be described completely and unambiguously from the organisation to the requirements and the implementation.
    </span>
 <div id="namespacedeclarations">
 <h3 id="ns" class="list">Namespace declarations</h3>
 <div id="ns" align="center">
 <table>
-<caption> <a href="#ns"> Table 1</a>: Namespaces used in the document </caption>
-<tbody>
-<tr><td><b>cmd</b></td><td>&lt;https://w3id.org/cmd#&gt;</td></tr>
-<tr><td><b>dc</b></td><td>&lt;http://purl.org/dc/terms/&gt;</td></tr>
-<tr><td><b>owl</b></td><td>&lt;http://www.w3.org/2002/07/owl#&gt;</td></tr>
-<tr><td><b>rdf</b></td><td>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</td></tr>
-<tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</td></tr>
-<tr><td><b>skos</b></td><td>&lt;http://www.w3.org/2004/02/skos/core#&gt;</td></tr>
-<tr><td><b>sw</b></td><td>&lt;http://www.w3.org/2003/06/sw-vocab-status/ns#&gt;</td></tr>
-<tr><td><b>vann</b></td><td>&lt;http://purl.org/vocab/vann/&gt;</td></tr>
-<tr><td><b>voaf</b></td><td>&lt;http://purl.org/vocommons/voaf#&gt;</td></tr>
-<tr><td><b>xml</b></td><td>&lt;http://www.w3.org/XML/1998/namespace&gt;</td></tr>
-<tr><td><b>xsd</b></td><td>&lt;http://www.w3.org/2001/XMLSchema#&gt;</td></tr>
-</tbody>
+   <caption> <i>Table 1: Namespaces used in the document </i></caption>
+   <tbody>
+   <tr><td><b>cmd</b></td><td>&lt;https://w3id.org/cmd#&gt;</td></tr>
+   <tr><td><b>dqv</b></td><td>&lt;http://www.w3.org/ns/dqv#&gt;</td></tr>
+   <tr><td><b>schema</b></td><td>&lt;http://schema.org/&gt;</td></tr>
+   <tr><td><b>skos</b></td><td>&lt;http://www.w3.org/2004/02/skos/core#&gt;</td></tr>
+   <!-- <tr><td><b>dc</b></td><td>&lt;http://purl.org/dc/terms/&gt;</td></tr> 
+   <tr><td><b>owl</b></td><td>&lt;http://www.w3.org/2002/07/owl#&gt;</td></tr>
+   <tr><td><b>rdf</b></td><td>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</td></tr>
+   <tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</td></tr>
+   <tr><td><b>skos</b></td><td>&lt;http://www.w3.org/2004/02/skos/core#&gt;</td></tr>
+   <tr><td><b>sw</b></td><td>&lt;http://www.w3.org/2003/06/sw-vocab-status/ns#&gt;</td></tr>
+   <tr><td><b>vann</b></td><td>&lt;http://purl.org/vocab/vann/&gt;</td></tr>
+   <tr><td><b>voaf</b></td><td>&lt;http://purl.org/vocommons/voaf#&gt;</td></tr>
+   <tr><td><b>xml</b></td><td>&lt;http://www.w3.org/XML/1998/namespace&gt;</td></tr>
+   <tr><td><b>xsd</b></td><td>&lt;http://www.w3.org/2001/XMLSchema#&gt;</td></tr>-->
+   </tbody>
 </table>
 </div>
 </div>
@@ -113,9 +137,39 @@ $(function(){
   
 
 <!--OVERVIEW SECTION-->
-    <div id="overview"><h2 id="overv" class="list">Compound Measure Description: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
-<span class="markdown">
-This ontology has the following classes and properties.</span>
+<div id="overview">
+   <h2 id="overv" class="list">Compound Measure Description: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<p class="markdown">
+   The core component of the CMD vocabulary is illustrated in Figure 1.
+   Hence, a <a href="#TSoR">TSoR</a> consists of a set of <a href="#AnalysisElement">AnalysisElements</a> and <a href="#Requirement">Requirements</a> that form a tree structure.
+   The elements of the tree are linked by the relations <a href="#isSpecifiedBy">isSpecifiedBy</a> and <a href="#expects">expects</a>.
+   In addition, they are associated with a content (name, description...) through the relation <a href="#hasContent">hasContent</a>.
+   The content of an analysis element is of type <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>, and a requirement is intended to measure a specific aspect,
+   therefore its content is of type <a href="https://www.w3.org/TR/vocab-dqv/#dqv:Metric">dqv:Metric</a>.
+   Note that analysis elements and requirements can only structure a single TSoR.
+   However, their contents, concepts or metrics, can appear in multiple TSoRs.
+</p>
+<p class="markdown"></p>
+   Additional information can be added to the structure to make it a fully defined measure.
+   Therefore, an <a href="#Implementation">Implementation</a> is linked to a requirement to indicate how to evaluate them, with <a href="#isImplementedBy">isImplementedBy</a>.
+   Each requirement and analysis element has a <a href="#weight">weight</a> that represents its relative importance compared to its siblings in the tree.
+   An aggregation function (<a href="#aggregFunction">aggregFunction</a>) is associated with a TSoR and indicates how to compute an overall score
+   based on results obtained on each requirement and on the weights of the structural elements.
+   Other information can be added to enhance the transparency of the TSoR thus defined, such as creators, creation and modification dates, etc.
+</p>
+<center>
+<img src = "https://raw.githubusercontent.com/Jendersen/TSoR-vocab/main/illustration.svg" alt="CMD vocabulary illustration: A TSoR has root an analysis element which is specified by another analysis element and/or expects a requirements. An analysis element has content a SKOS concept and a requirement has content a DQV metric, it its implemented by an implementation."/>
+<br>
+<i>Figure 1 : CMD-v core concepts and relations</i>
+</center>
+<h4>To go further</h4>
+<p class="markdown">
+   <a href="https://raw.githubusercontent.com/Jendersen/TSoR-vocab/main/cmd_shacl.ttl">SHACL shapes</a> are defined to ensure that the TSoR defined with the vocabulary is well-formed, i.e. it actually forms a tree structure.
+   It also checks that the TSoR satisfies some recommendations. An <a href="https://raw.githubusercontent.com/Jendersen/TSoR-vocab/main/example.ttl">example file</a> illustrates how to use the vocabulary to define a TSoR: it represents a measure of accountability, as described <a href="https://github.com/Jendersen/KG_accountability/tree/main">here</a>.</p>
+</p>
+<p class="markdown">
+   This ontology has the following classes and properties.
+</p>
 <h4>Classes</h4>
 <ul xmlns:widoco="https://w3id.org/widoco/vocab#"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -166,7 +220,8 @@ This ontology has the following classes and properties.</span>
 </div>
   
 <!--CROSSREF SECTION-->
-   <div id="crossref"><h2 id="crossreference" class="list">Cross-reference for Compound Measure Description classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div id="crossref">
+   <h2 id="crossreference" class="list">Cross-reference for Compound Measure Description classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 This section provides details for each class and property defined by Compound Measure Description.
 <div xmlns:widoco="https://w3id.org/widoco/vocab#"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -502,16 +557,21 @@ This section provides details for each class and property defined by Compound Me
     
 
 <!--REFERENCES SECTION-->
-  <div id="references">
+<!--
+<div id="references">
 <h2 id="ref" class="list">References <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <span class="markdown">
 Add your references here. It is recommended to have them as a list.</span>
-
 </div>
+-->
+
 <div id="acknowledgments">
 <h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <p>
-The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p>
+   This work is supported by the ANR <a href="https://dekalog.univ-nantes.fr">DeKaloG</a> (Decentralized Knowledge Graphs) project, ANR-19-CE23-0014, CE23 - Intelligence artificielle.
+   <br>
+   The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.
+</p>
 </div>
 
 
