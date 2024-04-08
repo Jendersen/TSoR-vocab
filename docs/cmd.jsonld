@@ -41,7 +41,7 @@
   } ],
   "http://purl.org/dc/terms/created" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#date",
-    "@value" : "2022-25-08"
+    "@value" : "2022-08-25"
   } ],
   "http://purl.org/dc/terms/creator" : [ {
     "@value" : "Jennie Andersen"

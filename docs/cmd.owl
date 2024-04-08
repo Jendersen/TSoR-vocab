@@ -12,7 +12,7 @@
     <owl:Ontology rdf:about="https://w3id.org/cmd#">
         <terms:contributor>Philippe Lamarre</terms:contributor>
         <terms:contributor>Sylvie Cazalens</terms:contributor>
-        <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2022-25-08</terms:created>
+        <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2022-08-25</terms:created>
         <terms:creator>Jennie Andersen</terms:creator>
         <terms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-03-24</terms:date>
         <terms:license rdf:resource="http://creativecommons.org/licenses/by-nc-sa/2.0/"/>

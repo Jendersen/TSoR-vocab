@@ -17,7 +17,7 @@
 :KGAcc a cmd:TSoR ;
     rdfs:label "KGAcc" ;
     dcterms:creator <https://orcid.org/0000-0001-6907-0136> ;
-    dcterms:created "2022-26-08"^^xsd:date ;
+    dcterms:created "2022-08-26"^^xsd:date ;
     dcterms:modified "2024-03-01"^^xsd:date ;
     rdfs:seeAlso "https://ceur-ws.org/Vol-2716/paper5.pdf" , "https://ieeexplore.ieee.org/document/10350099", "https://2023.eswc-conferences.org/wp-content/uploads/2023/05/paper_Andersen_2023_Assescmdg.pdf", "https://www.ipvs.uni-stuttgart.de/departments/de/resources/mds/Information_Overview.pdf" ;
     cmd:hasRoot :top_kgacc ;
